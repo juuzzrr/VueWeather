@@ -1,7 +1,7 @@
 <template>
   <div class="app" id="app">
     <div class="informer-container">
-      
+
       <div class="temperature">
 
         <img src="./assets/thermometer.png">
@@ -28,12 +28,35 @@ export default{
   name: 'FirstComponent',
   data(){
     return {
-      temperatureReal: 1,
-      temperatureFeel: '-3.2',
-      humidity: 6,
-      wind: 20
+      temperatureReal: '',
+      temperatureFeel: '',
+      humidity: '',
+      wind: '',
     }
-  }     
+  },
+  methods:{
+    getUserData(){
+      this.axios.get('http://37.77.104.246/api/weather/temp.php')
+      .then((response) => {
+        this.temperatureReal = response.data;
+      })
+      this.axios.get('http://37.77.104.246/api/weather/feel.php')
+      .then((response) => {
+        this.temperatureFeel = response.data;
+      })
+      this.axios.get('http://37.77.104.246/api/weather/humidity.php')
+      .then((response) => {
+        this.humidity = response.data;
+      })
+      this.axios.get('http://37.77.104.246/api/weather/wind.php')
+      .then((response) => {
+        this.wind = response.data;
+      })
+    }
+  },
+  mounted(){
+    this.getUserData();
+  }   
 }
 </script>
 
