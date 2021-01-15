@@ -1,25 +1,19 @@
 <template>
   <div class="app" id="app">
     <div class="informer-container">
-
       <div class="temperature">
         <img src="./assets/thermometer.png">
         <div class="temp-real">{{temperatureReal}}</div>
         <div class="temp-feel">{{temperatureFeel}}</div>
       </div>
-
       <div class="flex-break"></div>
-
       <div class="humidity">
         <img src="./assets/humidity.png"> {{humidity}} <small>%</small>
       </div>
-
       <div class="vertical-divider"></div>
-
       <div class="wind">
         <img src="./assets/wind.png"> {{wind}} <small>м/с</small>
       </div>
-
     </div>
   </div>
 </template>
